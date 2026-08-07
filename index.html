@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>董悠文 Stella Dong | 跨文化传播者</title>
+  <meta name="description" content="Youwen Dong (Stella) — Cross-cultural Digital Storyteller. Focused on social media, podcast production, brand communications & cross-cultural content creation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #faf9f6;
+      --bg-secondary: #f5f4f0;
+      --bg-dark: #1a1a1a;
+      --text-primary: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --text-light: #f5f5f5;
+      --text-muted: #a3a3a3;
+      --accent-gold: #c8a96e;
+      --accent-gold-light: #d4bc8c;
+      --border-light: #e8e6e1;
+      --border-dark: #333;
+      --card-white: #fff;
+      --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Scroll Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: var(--transition);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: var(--transition);
+    }
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: var(--transition);
+    }
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: var(--transition);
+    }
+    .reveal-scale.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* Navigation */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000; padding: 24px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(250, 249, 246, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 16px 48px;
+      box-shadow: 0 1px 20px rgba(0,0,0,0.05);
+    }
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--text-primary);
+    }
+    nav .links { display: flex; gap: 32px; }
+    nav .links a {
+      text-decoration: none; color: var(--text-secondary);
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+      transition: var(--transition); position: relative;
+    }
+    nav .links a:hover { color: var(--accent-gold); }
+    nav .links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--accent-gold);
+      transition: var(--transition);
+    }
+    nav .links a:hover::after { width: 100%; }
+    /* Language Toggle */
+    .lang-toggle {
+      margin-left: 16px;
+      display: flex; align-items: center; gap: 6px;
+      background: none; border: 1px solid var(--border-light);
+      border-radius: 20px; padding: 5px 3px;
+      cursor: pointer; transition: var(--transition);
+      font-family: inherit;
+    }
+    .lang-toggle:hover { border-color: var(--accent-gold); }
+    .lang-toggle span {
+      font-size: 0.75rem; font-weight: 500; padding: 4px 12px;
+      border-radius: 16px; transition: var(--transition);
+      color: var(--text-muted);
+    }
+    .lang-toggle span.active {
+      background: var(--accent-gold); color: white;
+    }
+    .lang-switch-zh, .lang-switch-en { display: inline; }
+    html.lang-en .lang-switch-zh { display: none; }
+    html.lang-zh .lang-switch-en { display: none; }
+    /* Default: show Chinese, hide English */
+    html .lang-switch-en { display: none; }
+    html.lang-en .lang-switch-en { display: inline; }
+    html.lang-en .lang-switch-zh { display: none; }
+    html.lang-zh .lang-switch-zh { display: inline; }
+    /* Block-level language switchers */
+    html .lang-block-en { display: none; }
+    html.lang-en .lang-block-en { display: block; }
+    html.lang-en .lang-block-zh { display: none; }
+    html.lang-zh .lang-block-zh { display: block; }
+    html.lang-zh .lang-block-en { display: none; }
+
+
+    /* Hero */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 0 48px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute;
+      top: -50%; right: -20%; width: 80%; height: 150%;
+      background: radial-gradient(ellipse, rgba(200,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-container {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .hero-text { padding-top: 80px; }
+    .hero-label {
+      font-family: 'Playfair Display', serif; font-size: 0.85rem;
+      color: var(--accent-gold); letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 24px; font-weight: 700;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 700;
+      line-height: 1.1; margin-bottom: 8px; color: var(--text-primary);
+    }
+    .hero-name-cn {
+      font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900;
+      letter-spacing: 0.1em; margin-bottom: 8px;
+    }
+    .hero-name-en {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem;
+      color: var(--text-muted); font-style: italic;
+      margin-bottom: 32px; letter-spacing: 0.05em;
+    }
+    .hero-title {
+      font-size: 1.25rem; color: var(--text-secondary);
+      font-weight: 300; line-height: 1.8;
+      margin-bottom: 40px; max-width: 480px;
+    }
+    .hero-title strong { font-weight: 700; color: var(--text-primary); }
+    .hero-email {
+      font-size: 0.85rem; color: var(--accent-gold); letter-spacing: 0.05em;
+      text-decoration: none; border-bottom: 1px solid var(--accent-gold);
+      padding-bottom: 4px; transition: var(--transition);
+      display: inline-block; margin-bottom: 48px;
+    }
+    .hero-email:hover { color: var(--text-primary); border-color: var(--text-primary); }
+    .hero-scroll {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 0.75rem; color: var(--text-muted);
+      letter-spacing: 0.1em; cursor: pointer; transition: var(--transition);
+    }
+    .hero-scroll:hover { color: var(--accent-gold); }
+    .hero-scroll .line {
+      width: 40px; height: 1px; background: var(--text-muted); transition: var(--transition);
+    }
+    .hero-scroll:hover .line { width: 60px; background: var(--accent-gold); }
+    .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-image img {
+      width: 100%; max-width: 500px; height: auto; border-radius: 4px;
+      filter: grayscale(15%) contrast(1.05); transition: var(--transition);
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15);
+    }
+    .hero-image img:hover { filter: grayscale(0%) contrast(1.05); transform: translateY(-4px); }
+    .hero-image::after {
+      content: ''; position: absolute;
+      top: 20px; right: 20px; bottom: -20px; left: -20px;
+      border: 1px solid var(--accent-gold); border-radius: 4px;
+      z-index: -1; opacity: 0.4; transition: var(--transition);
+    }
+    .hero-image:hover::after {
+      top: 10px; right: 10px; bottom: -10px; left: -10px; opacity: 0.6;
+    }
+
+    /* Section Base */
+    section { padding: 120px 48px; position: relative; }
+    .section-container { max-width: 1200px; margin: 0 auto; }
+    .section-header { margin-bottom: 80px; }
+    .section-number {
+      font-family: 'Playfair Display', serif; font-size: 0.85rem;
+      color: var(--accent-gold); letter-spacing: 0.15em; margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 700;
+      line-height: 1.2; margin-bottom: 20px;
+    }
+    .section-title-cn {
+      font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: 0.05em;
+    }
+    .section-subtitle {
+      font-size: 1.1rem; color: var(--text-secondary); font-weight: 300;
+      max-width: 600px; line-height: 1.8;
+    }
+    .dark-section { background: var(--bg-dark); color: var(--text-light); }
+    .dark-section .section-subtitle { color: var(--text-muted); }
+    .dark-section .section-number { color: var(--accent-gold-light); }
+
+    /* Divider */
+    .divider { width: 60px; height: 2px; background: var(--accent-gold); margin: 40px 0; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+    .about-text p {
+      font-size: 1.15rem; color: var(--text-secondary);
+      line-height: 2; margin-bottom: 32px;
+    }
+    .about-text p:first-child {
+      font-size: 1.35rem; color: var(--text-primary); font-weight: 500; line-height: 1.8;
+    }
+    .about-quote { border-left: 3px solid var(--accent-gold); padding-left: 32px; margin-top: 40px; }
+    .about-quote p {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem;
+      font-style: italic; color: var(--text-primary); line-height: 1.6;
+    }
+    .about-quote .author {
+      font-size: 0.85rem; color: var(--text-secondary); margin-top: 16px;
+      font-style: normal; font-family: 'Noto Sans SC', sans-serif;
+    }
+    .about-skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .skill-tag {
+      padding: 10px 24px; border: 1px solid var(--border-light);
+      border-radius: 100px; font-size: 0.85rem; color: var(--text-secondary);
+      transition: var(--transition); cursor: default;
+    }
+    .skill-tag:hover { border-color: var(--accent-gold); color: var(--accent-gold); transform: translateY(-2px); }
+    .about-image { position: relative; }
+    .about-image img { width: 100%; border-radius: 4px; filter: grayscale(20%) contrast(1.05); }
+
+    /* At a Glance Grid */
+    .glance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .glance-card {
+      background: var(--card-white); border-radius: 8px; padding: 32px 24px;
+      border: 1px solid var(--border-light); transition: var(--transition);
+      cursor: pointer; text-decoration: none; color: inherit; display: block;
+    }
+    .glance-card:hover {
+      transform: translateY(-8px); box-shadow: 0 20px 60px -10px rgba(0,0,0,0.1); border-color: transparent;
+    }
+    .glance-card .card-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px; font-size: 1.25rem; color: white;
+    }
+    .glance-card .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+    .glance-card .card-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+    .glance-card .card-meta { font-size: 0.75rem; color: var(--accent-gold); margin-top: 16px; letter-spacing: 0.05em; }
+
+    /* Project Sections */
+    .project-section { padding: 100px 48px; }
+    .project-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .project-grid.reverse { direction: rtl; }
+    .project-grid.reverse > * { direction: ltr; }
+
+    .project-images { display: grid; gap: 16px; }
+    .project-images img {
+      width: 100%; border-radius: 8px; transition: var(--transition);
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+    }
+    .project-images img:hover {
+      transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15);
+    }
+    .project-images.grid-2 { grid-template-columns: 1fr 1fr; }
+
+    .image-card-small { max-width: 280px; margin: 0 auto; }
+    .image-card-small img {
+      width: 100%; border-radius: 8px; transition: var(--transition);
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+    }
+
+    .project-content .project-label {
+      font-family: 'Playfair Display', serif; font-size: 0.85rem;
+      color: var(--accent-gold); letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .project-content .project-title {
+      font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 700;
+      line-height: 1.3; margin-bottom: 12px;
+    }
+    .project-content .project-title-en {
+      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+      color: var(--text-muted); margin-bottom: 32px; font-style: italic;
+    }
+    .project-content .project-desc {
+      font-size: 1rem; color: var(--text-secondary);
+      line-height: 1.8; margin-bottom: 32px;
+    }
+    .project-content .project-details { margin-bottom: 32px; }
+    .project-content .detail-item {
+      display: flex; gap: 16px; padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .project-content .detail-item:last-child { border-bottom: none; }
+    .project-content .detail-icon {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--accent-gold); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;
+    }
+    .project-content .detail-text h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .project-content .detail-text p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .project-tag {
+      padding: 6px 16px; background: var(--border-light);
+      border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);
+    }
+    .dark-section .project-tag { background: var(--border-dark); color: var(--text-muted); }
+
+    /* Project Stats */
+    .project-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+      margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border-light);
+    }
+    .dark-section .project-stats { border-color: var(--border-dark); }
+    .stat-item .stat-number {
+      font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700;
+      color: var(--accent-gold); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-item .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* Platform badges */
+    .platform-badges { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+    .platform-badge {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 500;
+    }
+    .badge-bilibili { background: #00a1d6; color: white; }
+    .badge-weibo { background: #e6162d; color: white; }
+    .badge-xiaohongshu { background: #ff2442; color: white; }
+    .badge-soundcloud { background: #ff5500; color: white; }
+    .badge-youtube { background: #ff0000; color: white; }
+    .badge-wechat { background: #07c160; color: white; }
+    .badge-peoplesdaily { background: #c41e3a; color: white; }
+
+    /* Clickable image link */
+    .clickable-image {
+      position: relative; display: block; overflow: hidden;
+      border-radius: 8px; transition: var(--transition);
+    }
+    .clickable-image img { width: 100%; border-radius: 8px; transition: var(--transition); }
+    .clickable-image:hover img { transform: scale(1.03); }
+    .clickable-image .overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: var(--transition); border-radius: 8px;
+    }
+    .clickable-image:hover .overlay { opacity: 1; }
+    .clickable-image .overlay-text {
+      color: white; font-size: 1rem; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* YouTube embed */
+    .youtube-embed {
+      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+      border-radius: 8px; box-shadow: 0 20px 60px -10px rgba(0,0,0,0.2);
+      margin-bottom: 16px;
+    }
+    .youtube-embed iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border: none; border-radius: 8px;
+    }
+
+    /* B站 video link card */
+    .bili-link-card {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--card-white); border: 1px solid var(--border-light);
+      border-radius: 12px; padding: 20px; margin-bottom: 16px;
+      text-decoration: none; color: var(--text-primary); transition: var(--transition);
+    }
+    .bili-link-card:hover {
+      transform: translateY(-4px); box-shadow: 0 12px 40px -10px rgba(0,0,0,0.1);
+      border-color: var(--accent-gold);
+    }
+    .bili-link-card .play-icon {
+      width: 52px; height: 52px; border-radius: 50%; background: #00a1d6;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: white; font-size: 1.2rem;
+    }
+    .bili-link-card .info h4 { font-size: 1rem; margin-bottom: 4px; }
+    .bili-link-card .info p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+    /* Collapsible */
+    /* ===== AUDIO PLAYER ===== */
+    .audio-player-wrapper { position: relative; width: 100%; }
+    .audio-cover {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 12px;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .audio-cover img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .audio-cover:hover img {
+      transform: scale(1.03);
+    }
+    .audio-cover.playing img {
+      transform: scale(1.03);
+    }
+    .audio-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 12px;
+      transition: all 0.4s ease;
+    }
+    .audio-cover:hover .audio-overlay {
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .audio-cover.playing .audio-overlay {
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .play-btn {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(200, 169, 110, 0.4);
+    }
+    .play-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(200, 169, 110, 0.6);
+    }
+    .audio-overlay p {
+      color: #fff;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .collapsible { margin-top: 24px; }
+    .collapsible-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; padding: 16px 20px; border-radius: 8px;
+      cursor: pointer; transition: var(--transition);
+      font-family: inherit; font-size: 0.95rem; font-weight: 500;
+    }
+    .collapsible-toggle.light {
+      background: var(--card-white); border: 1px solid var(--border-light); color: var(--text-primary);
+    }
+    .collapsible-toggle.light:hover { border-color: var(--accent-gold); }
+    .collapsible-toggle.dark {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); color: var(--text-light);
+    }
+    .collapsible-toggle.dark:hover { border-color: var(--accent-gold); }
+    .collapsible-toggle .arrow { transition: transform 0.3s; font-size: 0.8rem; color: var(--text-muted); }
+    .collapsible.open .collapsible-toggle .arrow { transform: rotate(180deg); }
+    .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+    .collapsible.open .collapsible-content { max-height: 3000px; }
+    .collapsible-inner { padding: 20px 0 0; }
+
+    .link-card {
+      display: flex; align-items: flex-start; gap: 16px;
+      border-radius: 8px; padding: 16px; margin-bottom: 12px;
+      text-decoration: none; transition: var(--transition);
+    }
+    .link-card.light {
+      background: var(--card-white); border: 1px solid var(--border-light); color: var(--text-primary);
+    }
+    .link-card.light:hover { border-color: var(--accent-gold); transform: translateX(4px); }
+    .link-card.dark {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border-dark); color: var(--text-light);
+    }
+    .link-card.dark:hover { border-color: var(--accent-gold); transform: translateX(4px); }
+    .link-card .thumb {
+      width: 80px; height: 60px; border-radius: 4px; object-fit: cover;
+      flex-shrink: 0; background: var(--bg-secondary);
+    }
+    .link-card .thumb-placeholder {
+      width: 80px; height: 60px; border-radius: 4px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; color: white;
+    }
+    .link-card .info h4 { font-size: 0.9rem; margin-bottom: 4px; }
+    .link-card .info p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+    .link-card .info .url { font-size: 0.75rem; color: var(--accent-gold); margin-top: 4px; }
+
+    /* Research Block */
+    .research-block {
+      background: var(--card-white); border: 1px solid var(--border-light);
+      border-radius: 12px; padding: 40px;
+    }
+    .research-block h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 8px;
+    }
+    .research-block .research-meta {
+      font-size: 0.85rem; color: var(--accent-gold); margin-bottom: 24px; letter-spacing: 0.05em;
+    }
+    .research-block p {
+      color: var(--text-secondary); line-height: 1.9; margin-bottom: 16px;
+    }
+
+    /* Education & Skills Section */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    }
+    .skill-category {
+      background: var(--card-white); border-radius: 12px; padding: 32px 24px;
+      border: 1px solid var(--border-light);
+    }
+    .skill-category h4 {
+      font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; color: var(--text-primary);
+    }
+    .skill-category ul { list-style: none; }
+    .skill-category ul li {
+      font-size: 0.85rem; color: var(--text-secondary);
+      padding: 6px 0; border-bottom: 1px solid var(--border-light);
+    }
+    .skill-category ul li:last-child { border-bottom: none; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: var(--text-light); padding: 80px 48px 40px; }
+    .footer-container { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px; margin-bottom: 80px;
+    }
+    .footer-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 700;
+      line-height: 1.2; margin-bottom: 24px;
+    }
+    .footer-cta p {
+      font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;
+      margin-bottom: 40px; max-width: 480px;
+    }
+    .footer-email {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 1.25rem; color: var(--accent-gold);
+      text-decoration: none; transition: var(--transition); font-weight: 500;
+    }
+    .footer-email:hover { color: var(--text-light); gap: 20px; }
+    .footer-email .arrow { font-size: 1.5rem; transition: var(--transition); }
+    .footer-email:hover .arrow { transform: translateX(8px); }
+    .footer-info h3 {
+      font-size: 1rem; font-weight: 700; margin-bottom: 24px; letter-spacing: 0.1em;
+    }
+    .footer-info p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 8px; }
+    .footer-social { display: flex; gap: 16px; margin-top: 24px; }
+    .footer-social a {
+      width: 40px; height: 40px; border: 1px solid var(--border-dark);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); text-decoration: none; transition: var(--transition); font-size: 0.85rem;
+    }
+    .footer-social a:hover { border-color: var(--accent-gold); color: var(--accent-gold); transform: translateY(-2px); }
+    .footer-bottom {
+      border-top: 1px solid var(--border-dark); padding-top: 40px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-bottom .back-top {
+      font-size: 0.8rem; color: var(--text-muted); text-decoration: none;
+      transition: var(--transition); display: flex; align-items: center; gap: 8px; cursor: pointer;
+    }
+    .footer-bottom .back-top:hover { color: var(--accent-gold); }
+
+    .highlight {
+      background: linear-gradient(180deg, transparent 60%, rgba(200,169,110,0.2) 60%);
+      padding: 0 4px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-container { grid-template-columns: 1fr; gap: 60px; text-align: center; }
+      .hero-text { padding-top: 120px; display: flex; flex-direction: column; align-items: center; }
+      .hero-title { max-width: none; }
+      .hero-image { order: -1; }
+      .hero-image img { max-width: 350px; }
+      .about-grid { grid-template-columns: 1fr; gap: 60px; }
+      .glance-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-grid.reverse { direction: ltr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; gap: 60px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 16px 24px; }
+      nav .links { display: none; }
+      .hero, section, .project-section, footer { padding-left: 24px; padding-right: 24px; }
+      .hero { padding-top: 80px; }
+      .glance-grid { grid-template-columns: 1fr; }
+      .project-stats { grid-template-columns: 1fr; gap: 24px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="nav" class="scrolled">
+  <div class="logo">SD.</div>
+  <div class="links">
+    <a href="#about"><span class="lang-switch-zh">关于我</span><span class="lang-switch-en">About</span></a>
+    <a href="#glance"><span class="lang-switch-zh">项目一览</span><span class="lang-switch-en">Projects</span></a>
+    <a href="#projects"><span class="lang-switch-zh">作品集</span><span class="lang-switch-en">Portfolio</span></a>
+    <a href="#research"><span class="lang-switch-zh">学术研究</span><span class="lang-switch-en">Research</span></a>
+    <a href="#skills"><span class="lang-switch-zh">技能</span><span class="lang-switch-en">Skills</span></a>
+    <a href="#contact"><span class="lang-switch-zh">联系</span><span class="lang-switch-en">Contact</span></a>
+    <button class="lang-toggle" id="langToggle" onclick="switchLang()" title="Switch Language / 切换语言">
+      <span id="btnZh" class="active">中</span>
+      <span id="btnEn">EN</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-container">
+    <div class="hero-text">
+      <p class="hero-label reveal">Creative Portfolio</p>
+      <h1 class="hero-name reveal reveal-delay-1">Stella Dong</h1>
+      <h2 class="hero-name-cn reveal reveal-delay-2">董悠文</h2>
+      <p class="hero-name-en reveal reveal-delay-3">Youwen Dong</p>
+      <p class="hero-title reveal reveal-delay-3">
+        <strong><span class="lang-switch-zh"><span class="lang-switch-zh">跨文化数字叙事者</span><span class="lang-switch-en">Cross-cultural Digital Storyteller</span></span><span class="lang-switch-en">Cross-cultural Digital Storyteller</span></strong><br>
+        <span class="lang-switch-zh">为不同的平台和受众讲述不同的故事</span><span class="lang-switch-en">Telling different stories for different platforms and audiences</span>
+      </p>
+      <a href="mailto:dongyouwen@gmail.com" class="hero-email reveal reveal-delay-4">dongyouwen@gmail.com</a>
+      <div class="hero-scroll reveal reveal-delay-4" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+        <span class="line"></span>
+        <span class="lang-switch-zh">向下探索</span><span class="lang-switch-en">Scroll Down</span>
+      </div>
+    </div>
+    <div class="hero-image reveal reveal-delay-2">
+      <img src="images/hero-portrait.jpg" alt="董悠文 Stella Dong">
+    </div>
+  </div>
+</section>
+
+<!-- About Me -->
+<section id="about">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-number"><span class="lang-switch-zh">01 / 关于我</span><span class="lang-switch-en">01 / About Me</span></p>
+      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title-cn"><span class="lang-switch-zh">关于我</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-image reveal-left">
+        <img src="images/hero-portrait.jpg" alt="董悠文 Stella">
+      </div>
+      <div class="about-text">
+        <p class="reveal reveal-delay-1"><span class="lang-switch-zh">我是董悠文（Stella），一名跨文化媒体从业者，擅长为不同的平台和受众讲述不同的故事。从央媒一线报道到意大利大学的社交媒体运营，从澳大利亚社区电台的播音主持到品牌整合营销传播 — 我相信好故事的力量能够跨越国界。</span><span class="lang-switch-en">I'm Youwen Dong (Stella), a cross-cultural media professional skilled at telling different stories for different platforms and audiences. From frontline reporting at People's Daily Online to social media management for an Italian university, from community radio hosting in Australia to integrated brand marketing communications — I believe in the power of great stories to transcend borders.</span></p>
+        <p class="reveal reveal-delay-2"><span class="lang-switch-zh">在过去几年的实践中，我深耕中英文双语内容创作，专注于社交媒体策略、视频编辑、播客制作和品牌叙事。我的工作足迹遍布中国、意大利和澳大利亚，对跨文化传播有着独特的理解。累计产出60+多媒体内容，其中YouTube单条视频获得13,000+次播放。</span><span class="lang-switch-en">Over the past years, I have immersed myself in bilingual content creation, focusing on social media strategy, video editing, podcast production, and brand storytelling. My work has taken me across China, Italy, and Australia, giving me a unique perspective on cross-cultural communication. I have produced 60+ multimedia pieces, with one YouTube video reaching 13,000+ views.</span></p>
+        <div class="about-quote reveal reveal-delay-3">
+          <p><span class="lang-switch-zh">"在24小时之外，还有一个第25小时，用来想象。"</span><span class="lang-switch-en">"Beyond the 24 hours, there is a 25th hour — for imagination."</span></p>
+          <p class="author"><span class="lang-switch-zh">—— 我的小红书账号「第25小时」的创作理念</span><span class="lang-switch-en">— The creative philosophy behind my Xiaohongshu account "The 25th Hour"</span></p>
+        </div>
+        <div class="about-skills reveal reveal-delay-4">
+          <span class="skill-tag"><span class="lang-switch-zh">社交媒体运营</span><span class="lang-switch-en">Social Media</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">视频剪辑</span><span class="lang-switch-en">Video Editing</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">播客制作</span><span class="lang-switch-en">Podcast Production</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">内容创作</span><span class="lang-switch-en">Content Creation</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">品牌叙事</span><span class="lang-switch-en">Brand Storytelling</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">国际化背景</span><span class="lang-switch-en">Global Perspective</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">KOL/KOC管理</span><span class="lang-switch-en">KOL/KOC Management</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">活动执行</span><span class="lang-switch-en">Event Execution</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">跨文化传播</span><span class="lang-switch-en">Cross-cultural Comms</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">脚本撰写</span><span class="lang-switch-en">Script Writing</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">AIGC工具</span><span class="lang-switch-en">AIGC Tools</span></span>
+          <span class="skill-tag"><span class="lang-switch-zh">社群运营</span><span class="lang-switch-en">Community Operations</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- At a Glance -->
+<section id="glance" style="background: var(--bg-secondary);">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-number"><span class="lang-switch-zh">02 / 项目一览</span><span class="lang-switch-en">02 / At a Glance</span></p>
+      <h2 class="section-title">At a Glance</h2>
+      <h2 class="section-title-cn"><span class="lang-switch-zh">项目一览</span></h2>
+      <p class="section-subtitle"><span class="lang-switch-zh">从央媒一线到品牌传播，从大学校园到社区电台 — 每一段经历都在塑造一个更完整的跨文化传播者。</span><span class="lang-switch-en">From national media frontlines to brand communications, from university campuses to community radio — every experience shapes a more complete cross-cultural communicator.</span></p>
+    </div>
+    <div class="glance-grid">
+      <a href="#project-peoplesdaily" class="glance-card reveal">
+        <div class="card-icon">📰</div>
+        <h3 class="card-title"><span class="lang-switch-zh">人民日报网<br>实习记者</span><span class="lang-switch-en">People's Daily<br>Journalist Intern</span></h3>
+        <p class="card-desc"><span class="lang-switch-zh">时政文化报道、热点策划与多媒体叙事，独立完成20+篇中英文报道</span><span class="lang-switch-en">Political & cultural reporting, hot-topic planning and multimedia storytelling. Independently completed 20+ bilingual reports</span></p>
+        <p class="card-meta">Sydney / 2025-2026</p>
+      </a>
+      <a href="#project-italy" class="glance-card reveal reveal-delay-1">
+        <div class="card-icon">🎓</div>
+        <h3 class="card-title"><span class="lang-switch-zh">意大利大学<br>中国社交媒体传播</span><span class="lang-switch-en">Italian University<br>on Chinese Social Media</span></h3>
+        <p class="card-desc"><span class="lang-switch-zh">为Luiss大学运营中文社交媒体，覆盖B站、微博、小红书</span><span class="lang-switch-en">Managed Chinese social media for Luiss University across Bilibili, Weibo, and Xiaohongshu</span></p>
+        <p class="card-meta">Rome → China</p>
+      </a>
+      <a href="#project-podcast" class="glance-card reveal reveal-delay-2">
+        <div class="card-icon">🎙️</div>
+        <h3 class="card-title"><span class="lang-switch-zh">WE CALL___<br>播客项目</span><span class="lang-switch-en">WE CALL___<br>Podcast Project</span></h3>
+        <p class="card-desc"><span class="lang-switch-zh">独立策划与制作的音频叙事播客，用声音编织故事</span><span class="lang-switch-en">Independently planned and produced audio narrative podcast, weaving stories through sound</span></p>
+        <p class="card-meta">Audio Story</p>
+      </a>
+      <a href="#project-ruder" class="glance-card reveal reveal-delay-3">
+        <div class="card-icon">✨</div>
+        <h3 class="card-title"><span class="lang-switch-zh">罗德公关<br>整合营销</span><span class="lang-switch-en">Ruder Finn<br>Integrated Marketing</span></h3>
+        <p class="card-desc"><span class="lang-switch-zh">WGC集团品牌整合营销传播，KOL合作与社交媒体策划</span><span class="lang-switch-en">Brand integrated marketing for WGC Group, KOL collaboration and social media planning</span></p>
+        <p class="card-meta">Shanghai / 2024</p>
+      </a>
+      <a href="#project-smg" class="glance-card reveal reveal-delay-4">
+        <div class="card-icon">📺</div>
+        <h3 class="card-title"><span class="lang-switch-zh">上海广电<br>视频编辑</span><span class="lang-switch-en">Shanghai Media Group<br>Video Editor</span></h3>
+        <p class="card-desc"><span class="lang-switch-zh">为ShanghaiEye频道编辑国际新闻视频，播放量突破13,000</span><span class="lang-switch-en">Edited international news videos for ShanghaiEye channel, surpassing 13,000 views</span></p>
+        <p class="card-meta">13,000+ Views</p>
+      </a>
+      <a href="#project-radio" class="glance-card reveal reveal-delay-1">
+        <div class="card-icon">📻</div>
+        <h3 class="card-title"><span class="lang-switch-zh">Radio 2000<br>社区电台</span><span class="lang-switch-en">Radio 2000<br>Community Radio</span></h3>
+        <p class="card-desc"><span class="lang-switch-zh">澳大利亚华人社区电台，报道多元文化社区动态</span><span class="lang-switch-en">Australian Chinese community radio, covering multicultural community stories</span></p>
+        <p class="card-meta">Sydney / FM 98.5</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS CONTAINER -->
+<div id="projects">
+
+<!-- Project 1: 人民日报 (DARK - REVERSE: text left, images right) -->
+<section class="project-section dark-section" id="project-peoplesdaily">
+  <div class="section-container">
+    <div class="project-grid reverse">
+      <div class="project-images reveal-right">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <img src="images/rmrb-museum.jpg" alt="博物馆日报道" style="border-radius:8px;">
+          <img src="images/rmrb-vivid-sydney.jpg" alt="Vivid Sydney" style="border-radius:8px;">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <img src="images/rmrb-autumn.jpg" alt="悉尼秋色" style="border-radius:8px;">
+          <img src="images/rmrb-baidu2.jpg" alt="百度报道" style="border-radius:8px;">
+        </div>
+      </div>
+      <div class="project-content reveal-left">
+        <p class="project-label">Project 01</p>
+        <h2 class="project-title" style="color: var(--text-light);"><span class="lang-switch-zh">人民日报网</span><span class="lang-switch-en">People's Daily Online</span></h2>
+        <p class="project-title-en"><span class="lang-switch-zh">People's Daily Online · 实习记者</span><span class="lang-switch-en">People's Daily Online · Journalist Intern</span></p>
+        <p class="project-desc" style="color: var(--text-muted);"><span class="lang-switch-zh">在人民日报网·澳新担任实习记者，负责以多媒体形式对澳大利亚地区的时政、文化类新闻实地报道，完成品牌内容传播。参与组织面向英国、澳大利亚受众的中国文化主题视频征集活动「遇见熊猫」，评估视频传播价值。</span><span class="lang-switch-en">Served as a journalist intern at People's Daily Online Australia & New Zealand, responsible for on-the-ground multimedia reporting on Australian politics, culture, and brand content communication. Participated in organizing the "Meet the Panda" Chinese culture video campaign targeting UK and Australian audiences, evaluating video content for communication value.</span></p>
+        <div class="project-details">
+          <div class="detail-item">
+            <div class="detail-icon">🎯</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">热点策划与多媒体叙事</span><span class="lang-switch-en">Hot-Topic Planning & Multimedia Storytelling</span></h4>
+              <p><span class="lang-switch-zh">深度挖掘「缤纷悉尼」灯光节、跨文化艺术展等时事热点素材，利用多媒体叙事（视频+图文）打造深度专题，实现品牌专题传播</span><span class="lang-switch-en">Deep-dived into trending topics like Vivid Sydney and cross-cultural art exhibitions, using multimedia storytelling (video + text + images) to create in-depth features for brand communication</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">🐼</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">「遇见熊猫」视频征集活动</span><span class="lang-switch-en">"Meet the Panda" Video Campaign</span></h4>
+              <p><span class="lang-switch-zh">参与组织面向英国、澳大利亚受众的中国文化主题视频征集活动，负责投稿整理、初步筛选及参评名单整理，从传播价值维度进行内容评估</span><span class="lang-switch-en">Co-organized the Chinese culture video campaign targeting UK and Australian audiences, handling submission collection, preliminary screening, and evaluation from a communication value perspective</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">🌐</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">中英双语内容策划</span><span class="lang-switch-en">Bilingual Content Planning</span></h4>
+              <p><span class="lang-switch-zh">针对海外受众进行中英双语编译，优化叙事框架以符合当地文化认知</span><span class="lang-switch-en">Adapted and translated bilingual content for international audiences, optimizing narrative frameworks to align with local cultural understanding</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="platform-badges">
+          <span class="platform-badge badge-peoplesdaily"><span class="lang-switch-zh">人民日报网</span><span class="lang-switch-en">People's Daily Online</span></span>
+        </div>
+        <!-- Collapsible: 人民日报 work links -->
+        <div class="collapsible" id="rmrb-links">
+          <button class="collapsible-toggle dark" onclick="toggleCollapsible('rmrb-links')">
+            <span><span class="lang-switch-zh">📰 4-7月的持续报道</span><span class="lang-switch-en">📰 April-July Ongoing Coverage</span></span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="collapsible-content">
+            <div class="collapsible-inner">
+              <a href="http://australia.people.com.cn/n1/2026/0615/c408038-40740763.html" target="_blank" class="link-card dark">
+                <div class="thumb-placeholder" style="background:#1a5276;">新闻</div>
+                <div class="info">
+                  <h4><span class="lang-switch-zh">悉尼库吉海滩鲨鱼袭击事件报道</span><span class="lang-switch-en">Shark Attack at Coogee Beach, Sydney</span></h4>
+                  <p><span class="lang-switch-zh">澳大利亚新州警方确认伤者身份</span><span class="lang-switch-en">NSW Police confirm victim identity</span></p>
+                  <div class="url">australia.people.com.cn</div>
+                </div>
+              </a>
+              <a href="http://australia.people.com.cn/n1/2026/0601/c408038-40731610.html" target="_blank" class="link-card dark">
+                <div class="thumb-placeholder" style="background:#6c3483;">新闻</div>
+                <div class="info">
+                  <h4><span class="lang-switch-zh">强风暴席卷澳大利亚西澳州</span><span class="lang-switch-en">Severe Storm Hits Western Australia</span></h4>
+                  <p><span class="lang-switch-zh">致数万户家庭断电，建筑损毁</span><span class="lang-switch-en">Tens of thousands without power, buildings damaged</span></p>
+                  <div class="url">australia.people.com.cn</div>
+                </div>
+              </a>
+              <a href="http://v.people.cn/n1/2026/0531/c239891-40730957.html" target="_blank" class="link-card dark">
+                <img src="images/rmrb-vivid-zh.jpg" alt="" class="thumb">
+                <div class="info">
+                  <h4><span class="lang-switch-zh">中国留学生作品亮相 Vivid Sydney 2026（视频）</span><span class="lang-switch-en">Chinese Students' Artwork at Vivid Sydney 2026 (Video)</span></h4>
+                  <p><span class="lang-switch-zh">"缤纷悉尼"灯光音乐节开幕报道</span><span class="lang-switch-en">Vivid Sydney Festival Opening Coverage</span></p>
+                  <div class="url">v.people.cn</div>
+                </div>
+              </a>
+              <a href="http://en.people.cn/n3/2026/0604/c98649-20463931.html" target="_blank" class="link-card dark">
+                <img src="images/rmrb-vivid-en.jpg" alt="" class="thumb">
+                <div class="info">
+                  <h4><span class="lang-switch-zh">Chinese students' artwork at Vivid Sydney</span><span class="lang-switch-en">Chinese Students' Artwork at Vivid Sydney</span></h4>
+                  <p><span class="lang-switch-zh">English report on Vivid Sydney 2026</span><span class="lang-switch-en">English Report on Vivid Sydney 2026</span></p>
+                  <div class="url">en.people.cn</div>
+                </div>
+              </a>
+              <a href="http://australia.people.com.cn/n1/2026/0629/c408038-40749214.html" target="_blank" class="link-card dark">
+                <img src="images/rmrb-art-exhibit.jpg" alt="" class="thumb">
+                <div class="info">
+                  <h4><span class="lang-switch-zh">「栖·景——汤集祥跨文化绘画之旅」艺术展</span><span class="lang-switch-en">"Dwelling · Landscape — Tang Jixiang Cross-cultural Painting Journey" Exhibition</span></h4>
+                  <p><span class="lang-switch-zh">悉尼开幕报道，跨文化艺术对话</span><span class="lang-switch-en">Sydney opening coverage, cross-cultural art dialogue</span></p>
+                  <div class="url">australia.people.com.cn</div>
+                </div>
+              </a>
+              <a href="http://australia.people.com.cn/n1/2026/0512/c408038-40718020.html" target="_blank" class="link-card dark">
+                <img src="images/rmrb-autumn-thumb.jpg" alt="" class="thumb">
+                <div class="info">
+                  <h4><span class="lang-switch-zh">摄影组图 · 南半球秋意渐浓</span><span class="lang-switch-en">Photo Series · Autumn Deepens in the Southern Hemisphere</span></h4>
+                  <p><span class="lang-switch-zh">悉尼公园秋色摄影记录（摄影 董悠文）</span><span class="lang-switch-en">Sydney park autumn photography (Photo: Youwen Dong)</span></p>
+                  <div class="url">australia.people.com.cn</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="project-stats">
+          <div class="stat-item">
+            <p class="stat-number">20+</p>
+            <p class="stat-label"><span class="lang-switch-zh">中英文报道</span><span class="lang-switch-en">Bilingual Reports</span></p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">AU</p>
+            <p class="stat-label"><span class="lang-switch-zh">澳大利亚站</span><span class="lang-switch-en">Australia Bureau</span></p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">4-7月</p>
+            <p class="stat-label"><span class="lang-switch-zh">持续报道</span><span class="lang-switch-en">Ongoing Coverage</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project 2: 意大利 (LIGHT - images left, text right) -->
+<section class="project-section" id="project-italy">
+  <div class="section-container">
+    <div class="project-grid">
+      <div class="project-images reveal-left">
+        <a href="https://b23.tv/hUTK7Gs" target="_blank" class="bili-link-card">
+          <div class="play-icon">▶</div>
+          <div class="info">
+            <h4><span class="lang-switch-zh">音乐之声-现代校园版</span><span class="lang-switch-en">The Sound of Music - Campus Edition</span></h4>
+            <p><span class="lang-switch-zh">点击前往 Bilibili 观看完整视频</span><span class="lang-switch-en">Click to watch full video on Bilibili</span></p>
+          </div>
+        </a>
+        <div style="margin-top:16px;">
+          <img src="images/weibo-redbook.jpg" alt="微博与小红书运营" style="border-radius:8px;width:100%;">
+        </div>
+      </div>
+      <div class="project-content reveal-right">
+        <p class="project-label">Project 02</p>
+        <h2 class="project-title"><span class="lang-switch-zh">意大利大学<br>中国社交媒体传播</span><span class="lang-switch-en">Italian University<br>on Chinese Social Media</span></h2>
+        <p class="project-title-en">Italy on Chinese Social Media · Luiss University</p>
+        <p class="project-desc"><span class="lang-switch-zh">在Luiss大学期间担任学生大使，针对学校招生策划社交媒体内容并运营微博、小红书等平台。为意大利自由社会科学大学（Luiss University）策划并运营中文社交媒体内容，将欧洲校园故事通过中国数字平台传递给潜在的中国留学生。</span><span class="lang-switch-en">Served as a student ambassador at Luiss University, planning social media content for student recruitment and managing platforms like Weibo and Xiaohongshu. Created and operated Chinese social media content for Luiss University, bringing European campus stories to prospective Chinese students through digital platforms.</span></p>
+        <div class="project-details">
+          <div class="detail-item">
+            <div class="detail-icon">🎬</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">B站视频《音乐之声·现代校园版》</span><span class="lang-switch-en">Bilibili Video: "The Sound of Music - Modern Campus Edition"</span></h4>
+              <p><span class="lang-switch-zh">撰写校园生活脚本、拍摄协调与视频剪辑，为意大利校园量身定制视频内容</span><span class="lang-switch-en">Wrote campus life scripts, coordinated filming, and edited videos tailored for the Italian university context</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">✍️</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">微博与小红书日常运营</span><span class="lang-switch-en">Weibo & Xiaohongshu Daily Operations</span></h4>
+              <p><span class="lang-switch-zh">翻译并撰写意大利大学学术动态、校园生活资讯，以「意大利Luiss大学」官方微博和「第25小时」小红书账号为载体</span><span class="lang-switch-en">Translated and created content on Italian university academic updates and campus life, operating through the official "Luiss University" Weibo and "The 25th Hour" Xiaohongshu accounts</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">🎯</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">招生推广与用户转化</span><span class="lang-switch-en">Student Recruitment & Conversion</span></h4>
+              <p><span class="lang-switch-zh">参与线上线下多渠道招生推广，包括主题演讲、现场答疑及咨询沟通，成功协助招收2名学生</span><span class="lang-switch-en">Participated in multi-channel online and offline recruitment promotion including keynote speeches, Q&A sessions, and consultations, successfully helping recruit 2 students</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="platform-badges">
+          <a href="https://b23.tv/hUTK7Gs" target="_blank" class="platform-badge badge-bilibili" style="text-decoration:none;">Bilibili</a>
+          <span class="platform-badge badge-weibo"><span class="lang-switch-zh">微博</span><span class="lang-switch-en">Weibo</span></span>
+          <span class="platform-badge badge-xiaohongshu"><span class="lang-switch-zh">小红书</span><span class="lang-switch-en">Xiaohongshu</span></span>
+        </div>
+        <div class="project-tags" style="margin-top:16px;">
+          <span class="project-tag"><span class="lang-switch-zh">B站视频</span><span class="lang-switch-en">Bilibili Video</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">微博运营</span><span class="lang-switch-en">Weibo Ops</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">小红书</span><span class="lang-switch-en">Xiaohongshu</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">双语视频制作</span><span class="lang-switch-en">Bilingual Video</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">招生推广</span><span class="lang-switch-en">Recruitment</span></span>
+        </div>
+        <div class="project-stats">
+          <div class="stat-item">
+            <p class="stat-number">3</p>
+            <p class="stat-label"><span class="lang-switch-zh">平台覆盖</span><span class="lang-switch-en">Platforms</span></p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">Video</p>
+            <p class="stat-label"><span class="lang-switch-zh">双语视频制作</span><span class="lang-switch-en">Bilingual Video</span></p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">2+</p>
+            <p class="stat-label"><span class="lang-switch-zh">成功招生</span><span class="lang-switch-en">Students Recruited</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project 3: 播客 (DARK - REVERSE: text left, images right) -->
+<section class="project-section dark-section" id="project-podcast">
+  <div class="section-container">
+    <div class="project-grid reverse">
+      <div class="project-images reveal-right">
+        <a href="https://wecall.my.canva.site/we-call" target="_blank" class="clickable-image">
+          <img src="images/podcast-website.jpg" alt="WE CALL 播客网站">
+          <div class="overlay">
+            <span class="overlay-text"><span class="lang-switch-zh">访问播客网站 →</span><span class="lang-switch-en">Visit Podcast Site →</span></span>
+          </div>
+        </a>
+        <div class="audio-player-wrapper" id="podcast-player">
+          <div class="audio-cover" id="podcast-cover" onclick="togglePodcast()">
+            <img src="images/podcast-cover-soundcloud.png" alt="WE CALL Episode 1">
+            <div class="audio-overlay" id="podcast-overlay">
+              <div class="play-btn" id="podcast-play-btn">▶</div>
+              <p id="podcast-play-text"><span class="lang-switch-zh">点击播放</span><span class="lang-switch-en">Click to Play</span></p>
+            </div>
+          </div>
+          <audio id="podcast-audio" preload="metadata" src="images/podcast-ep1.mp3"></audio>
+        </div>
+      </div>
+      <div class="project-content reveal-left">
+        <p class="project-label">Project 03</p>
+        <h2 class="project-title" style="color: var(--text-light);"><span class="lang-switch-zh">WE CALL___ 播客</span><span class="lang-switch-en">WE CALL___ Podcast</span></h2>
+        <p class="project-title-en">A Virtual Story · Hosted by Stella</p>
+        <p class="project-desc" style="color: var(--text-muted);"><span class="lang-switch-zh">独立策划与制作的音频叙事播客项目。从故事构思到脚本撰写，从录音制作到视觉呈现，每一期都是一场声音与想象力的实验。以李白、诗歌和跨越时空的对话为灵感，用声音构建一个虚拟的叙事世界。在悉尼大学媒体实践硕士课程中完成，聚焦AI与行业发展。</span><span class="lang-switch-en">An independently planned and produced audio narrative podcast. From story conception to scriptwriting, from recording to visual presentation — each episode is an experiment in sound and imagination. Inspired by Li Bai, poetry, and conversations across time, building a virtual narrative world through sound. Completed as part of the Master of Media Practice at the University of Sydney, focusing on AI and industry development.</span></p>
+        <div class="project-details">
+          <div class="detail-item">
+            <div class="detail-icon">🎧</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">音频叙事</span><span class="lang-switch-en">Audio Narrative</span></h4>
+              <p><span class="lang-switch-zh">完整播客制作流程，从选题策划到音频混音。第一集「Delay, Map and Drunk Poet」以李白和醉诗人为灵感</span><span class="lang-switch-en">Complete podcast production workflow, from topic planning to audio mixing. Episode 1 "Delay, Map and Drunk Poet" inspired by Li Bai and the drunken poet</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📖</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">内容创作</span><span class="lang-switch-en">Content Creation</span></h4>
+              <p><span class="lang-switch-zh">以诗歌和文学为灵感，创作跨文化主题的音频内容。章节包括：The Drunk Poet、A Dragon from Dream、Travel, Moon & More Wine、Boarding Call</span><span class="lang-switch-en">Creating cross-cultural audio content inspired by poetry and literature. Chapters include: The Drunk Poet, A Dragon from Dream, Travel, Moon & More Wine, Boarding Call</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">🎨</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">视觉设计</span><span class="lang-switch-en">Visual Design</span></h4>
+              <p><span class="lang-switch-zh">为播客设计视觉形象和封面风格，构建完整的品牌视觉识别系统</span><span class="lang-switch-en">Designed visual identity and cover art for the podcast, building a complete brand visual identity system</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="platform-badges">
+          <a href="https://soundcloud.com/stella-366031122/we-call-eposide-1-delay-map/s-Vqgbj0riSkx" target="_blank" class="platform-badge badge-soundcloud" style="text-decoration:none;">SoundCloud</a>
+          <a href="https://wecall.my.canva.site/we-call" target="_blank" class="platform-badge" style="background:var(--accent-gold);color:white;text-decoration:none;"><span class="lang-switch-zh">播客网站</span><span class="lang-switch-en">Podcast Site</span></a>
+        </div>
+        <div class="project-tags" style="margin-top:16px;">
+          <span class="project-tag"><span class="lang-switch-zh">播客制作</span><span class="lang-switch-en">Podcast Production</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">音频叙事</span><span class="lang-switch-en">Audio Storytelling</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">网页设计</span><span class="lang-switch-en">Web Design</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">声音设计</span><span class="lang-switch-en">Sound Design</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">跨文化主题</span><span class="lang-switch-en">Cross-cultural</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">品牌视觉</span><span class="lang-switch-en">Brand Visuals</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project 4: 罗德公关 (LIGHT - images left, text right) -->
+<section class="project-section" id="project-ruder">
+  <div class="section-container">
+    <div class="project-grid">
+      <div class="project-images reveal-left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
+          <div class="image-card-small">
+            <img src="images/ruderfinn-post.jpg" alt="罗德公关内容">
+          </div>
+          <div class="image-card-small">
+            <img src="images/ruderfinn-post2.jpg" alt="罗德公关内容2">
+          </div>
+        </div>
+      </div>
+      <div class="project-content reveal-right">
+        <p class="project-label">Project 04</p>
+        <h2 class="project-title"><span class="lang-switch-zh">罗德公关 WGC 整合营销</span><span class="lang-switch-en">Ruder Finn WGC Integrated Marketing</span></h2>
+        <p class="project-title-en">Ruder Finn Marcom · WGC Group</p>
+        <p class="project-desc"><span class="lang-switch-zh">在罗德公共关系顾问有限公司（Ruder Finn）实习期间，为WGC Group（世界黄金协会）策划并执行品牌整合营销传播项目。项目聚焦「硬金」品类推广及「2024中国国际黄金大会」的全渠道整合营销推广，面向中国消费者推广黄金珠宝品牌。</span><span class="lang-switch-en">During an internship at Ruder Finn, planned and executed brand integrated marketing communications projects for WGC Group (World Gold Council). The project focused on "hard gold" category promotion and the omnichannel integrated marketing of "2024 China International Gold Conference", promoting gold jewelry brands to Chinese consumers.</span></p>
+        <div class="project-details">
+          <div class="detail-item">
+            <div class="detail-icon">📱</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">社交媒体传播方案</span><span class="lang-switch-en">Social Media Communication Plan</span></h4>
+              <p><span class="lang-switch-zh">策划并执行社交媒体传播方案，利用小红书等平台进行种草及KOL/KOC矩阵式内容投放</span><span class="lang-switch-en">Planned and executed social media communication strategies, leveraging platforms like Xiaohongshu for seeding and KOL/KOC matrix content distribution</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📅</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">活动全流程支持</span><span class="lang-switch-en">Full-Process Event Support</span></h4>
+              <p><span class="lang-switch-zh">负责活动全流程支持，涵盖跨团队（甲方公司、广告、公关、会议、媒介）沟通与双语内容输出</span><span class="lang-switch-en">Responsible for full-process event support, covering cross-team communication (client, advertising, PR, conference, media) and bilingual content output</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📊</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">数据洞察与决策支持</span><span class="lang-switch-en">Data Insights & Decision Support</span></h4>
+              <p><span class="lang-switch-zh">通过ESG数据分析报告为客户的市场进入策略提供决策支持，助力品牌在核心客群中提升互动转化率</span><span class="lang-switch-en">Provided decision support for client market entry strategies through ESG data analysis reports, helping brands improve engagement conversion rates among core audiences</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="platform-badges">
+          <span class="platform-badge badge-wechat"><span class="lang-switch-zh">微信</span><span class="lang-switch-en">WeChat</span></span>
+          <span class="platform-badge badge-xiaohongshu"><span class="lang-switch-zh">小红书</span><span class="lang-switch-en">Xiaohongshu</span></span>
+          <span class="platform-badge" style="background:var(--accent-gold);color:white;"><span class="lang-switch-zh">抖音</span><span class="lang-switch-en">Douyin</span></span>
+        </div>
+        <div class="project-tags" style="margin-top:16px;">
+          <span class="project-tag"><span class="lang-switch-zh">整合营销</span><span class="lang-switch-en">Integrated Marketing</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">品牌传播</span><span class="lang-switch-en">Brand Comms</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">KOL/KOC合作</span><span class="lang-switch-en">KOL/KOC Collab</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">活动策划</span><span class="lang-switch-en">Event Planning</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">内容营销</span><span class="lang-switch-en">Content Marketing</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">数据分析</span><span class="lang-switch-en">Data Analysis</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project 5: SMG (DARK - REVERSE: text left, videos right) -->
+<section class="project-section dark-section" id="project-smg">
+  <div class="section-container">
+    <div class="project-grid reverse">
+      <div class="project-images reveal-right">
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/tCzBwkm8jec" title="Chengdu Universiade Village receives Team China" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-bottom:16px;"><span class="lang-switch-zh">成都大运村迎接中国代表团 · 13,000+ 播放</span><span class="lang-switch-en">Chengdu Universiade Village Welcomes Team China · 13,000+ Views</span></p>
+        <div class="youtube-embed">
+          <iframe src="https://www.youtube.com/embed/ppEy3QGAPf4" title="China Jobs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;"><span class="lang-switch-zh">China Jobs 系列报道</span><span class="lang-switch-en">China Jobs Series Report</span></p>
+      </div>
+      <div class="project-content reveal-left">
+        <p class="project-label">Project 05</p>
+        <h2 class="project-title" style="color: var(--text-light);"><span class="lang-switch-zh">上海广电 · ShanghaiEye</span><span class="lang-switch-en">SMG · ShanghaiEye</span></h2>
+        <p class="project-title-en">Shanghai Media Group · Video Content Marketing</p>
+        <p class="project-desc" style="color: var(--text-muted);"><span class="lang-switch-zh">在上海文化广播影视集团有限公司（SMG）ShanghaiEye频道实习期间，负责英文新闻视频内容编辑与制作。根据每日选题进行新闻翻译及新闻短视频剪辑与视觉包装，为YouTube频道@Shanghaieye剪辑的视频获得超过13,000次播放，相比频道先前流量表现有显著突破。</span><span class="lang-switch-en">During an internship at SMG's ShanghaiEye channel, responsible for English news video content editing and production. Translated news and edited short videos based on daily topics with visual packaging. The video edited for the YouTube channel @Shanghaieye achieved over 13,000 views, a significant breakthrough compared to the channel's previous performance.</span></p>
+        <div class="project-details">
+          <div class="detail-item">
+            <div class="detail-icon">✂️</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">视频编辑与视觉包装</span><span class="lang-switch-en">Video Editing & Visual Packaging</span></h4>
+              <p><span class="lang-switch-zh">负责视频剪辑，把控节奏、叙事结构和视觉韵律，进行新闻翻译及短视频剪辑</span><span class="lang-switch-en">Responsible for video editing, controlling pacing, narrative structure, and visual rhythm; conducted news translation and short video editing</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📰</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">国际新闻制作</span><span class="lang-switch-en">International News Production</span></h4>
+              <p><span class="lang-switch-zh">负责每日2条英语新闻视频制作，独立完成40+条国际新闻视频制作与发布</span><span class="lang-switch-en">Responsible for producing 2 English news videos daily, independently completed 40+ international news videos</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">📈</div>
+            <div class="detail-text">
+              <h4 style="color: var(--text-light);"><span class="lang-switch-zh">流量突破</span><span class="lang-switch-en">Traffic Breakthrough</span></h4>
+              <p><span class="lang-switch-zh">为YouTube频道剪辑的「成都大运村迎接中国代表团及首批外国代表团」视频播放量达13,000+，是频道先前表现的重大突破</span><span class="lang-switch-en">The "Chengdu Universiade Village Welcomes Team China" video edited for the YouTube channel reached 13,000+ views, a major breakthrough for the channel</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="platform-badges">
+          <span class="platform-badge badge-youtube">YouTube</span>
+          <span class="platform-badge badge-youtube">@Shanghaieye</span>
+        </div>
+        <div class="project-stats">
+          <div class="stat-item">
+            <p class="stat-number">13,000+</p>
+            <p class="stat-label"><span class="lang-switch-zh">YouTube 播放量</span><span class="lang-switch-en">YouTube Views</span></p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">40+</p>
+            <p class="stat-label"><span class="lang-switch-zh">独立完成视频</span><span class="lang-switch-en">Videos Produced</span></p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-number">EN</p>
+            <p class="stat-label"><span class="lang-switch-zh">英文内容</span><span class="lang-switch-en">English Content</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project 6: Radio 2000 (LIGHT - images left, text right) -->
+<section class="project-section" id="project-radio">
+  <div class="section-container">
+    <div class="project-grid">
+      <div class="project-images reveal-left">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
+          <div class="image-card-small">
+            <img src="images/radio-2000.jpg" alt="Radio 2000项目">
+          </div>
+          <div class="image-card-small">
+            <img src="images/radio-2000-2.jpg" alt="Radio 2000项目2">
+          </div>
+        </div>
+      </div>
+      <div class="project-content reveal-right">
+        <p class="project-label">Project 06</p>
+        <h2 class="project-title">Radio 2000 · FM 98.5</h2>
+        <p class="project-title-en">Australian Chinese Community Radio</p>
+        <p class="project-desc"><span class="lang-switch-zh">在澳大利亚悉尼华人社区电台Radio 2000（FM 98.5）担任实习主播。自主策划并运营《Time Out-时差快报》栏目，从选题立项、人物专访、音频录制到后期剪辑完成全闭环制作。通过深度链接华人社区、科技联盟等资源，提升栏目时效性与权威性。</span><span class="lang-switch-en">Served as an intern host at Radio 2000 (FM 98.5), a Chinese community radio station in Sydney. Independently planned and operated the "Time Out" news column, completing the full production cycle from topic selection, interviews, and audio recording to post-production editing. Enhanced the column's timeliness and authority through deep connections with the Chinese community and tech alliances.</span></p>
+        <div class="project-details">
+          <div class="detail-item">
+            <div class="detail-icon">🎤</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">栏目策划与全闭环运营</span><span class="lang-switch-en">Column Planning & Full-Cycle Operations</span></h4>
+              <p><span class="lang-switch-zh">自主策划并运营《Time Out-时差快报》栏目，从选题立项、人物专访、音频录制到后期剪辑完成全闭环制作</span><span class="lang-switch-en">Independently planned and operated the "Time Out" column, completing the full production cycle from topic selection, interviews, recording to post-production</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">🌐</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">社群搭建与社交媒体矩阵</span><span class="lang-switch-en">Community Building & Social Media Matrix</span></h4>
+              <p><span class="lang-switch-zh">通过深度链接华人社区、科技联盟等资源，提升栏目时效性与权威性，并通过社交媒体矩阵同步传播，获得多家华人机构宣传邀请</span><span class="lang-switch-en">Enhanced the column's timeliness and authority through deep community connections, and distributed content across a social media matrix, receiving promotion invitations from multiple Chinese organizations</span></p>
+            </div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-icon">⚡</div>
+            <div class="detail-text">
+              <h4><span class="lang-switch-zh">快速制作</span><span class="lang-switch-en">Rapid Production</span></h4>
+              <p><span class="lang-switch-zh">针对新闻时效性，快速完成内容制作与发布，聚焦华人社区与多元文化群体的关注议题</span><span class="lang-switch-en">Quickly completed content production and publishing for time-sensitive news, focusing on issues relevant to Chinese and multicultural communities</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag"><span class="lang-switch-zh">社区电台</span><span class="lang-switch-en">Community Radio</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">栏目运营</span><span class="lang-switch-en">Column Ops</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">新闻视频</span><span class="lang-switch-en">News Video</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">脚本撰写</span><span class="lang-switch-en">Script Writing</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">拍摄剪辑</span><span class="lang-switch-en">Filming & Editing</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">社群搭建</span><span class="lang-switch-en">Community Building</span></span>
+          <span class="project-tag"><span class="lang-switch-zh">多元文化</span><span class="lang-switch-en">Multicultural</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- Academic Research -->
+<section id="research" style="background: var(--bg-secondary);">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-number"><span class="lang-switch-zh">03 / 学术研究</span><span class="lang-switch-en">03 / Research</span></p>
+      <h2 class="section-title">Research</h2>
+      <h2 class="section-title-cn"><span class="lang-switch-zh">学术研究</span></h2>
+      <p class="section-subtitle"><span class="lang-switch-zh">研究生阶段的行业研究报告，聚焦数字媒体转型与新闻教育。</span><span class="lang-switch-en">Postgraduate industry research report focusing on digital media transformation and journalism education.</span></p>
+    </div>
+    <div class="reveal">
+      <div class="research-block">
+        <h3>Preparing the Next Generation of Journalists</h3>
+        <p class="research-meta"><span class="lang-switch-zh">Aligning Media Practice Education with Australia's Changing Digital Media Industry · 悉尼大学媒体实践硕士 · 1,649词</span><span class="lang-switch-en">Aligning Media Practice Education with Australia's Changing Digital Media Industry · Master of Media Practice, University of Sydney · 1,649 words</span></p>
+        <p><strong><span class="lang-switch-zh">研究背景：</span><span class="lang-switch-en">Research Background: </span></strong><span class="lang-switch-zh">随着人工智能与算法驱动的新闻分发在社交媒体平台的普及，传统新闻生产正在被重构。新闻生产——曾经依赖记者的写作内容——如今已成为数据统计、受众分析和平台分发的混合过程。澳大利亚政府数据显示，"记者与其他作家"行业正在整体收缩，年增长率预计为 -1.4%，而雇主对入门级岗位的要求已上升至平均 3.94 年工作经验。</span><span class="lang-switch-en">With the proliferation of AI and algorithm-driven news distribution on social media platforms, traditional journalism production is being restructured. News production — once reliant on journalists' writing — has become a hybrid process of data statistics, audience analysis, and platform distribution. Australian Government data shows the "Journalists and Other Writers" industry is contracting overall, with an annual growth rate projected at -1.4%, while employer requirements for entry-level positions have risen to an average of 3.94 years of work experience.</span></p>
+        <p><strong><span class="lang-switch-zh">核心发现：</span><span class="lang-switch-en">Key Findings: </span></strong><span class="lang-switch-zh">传统新闻编辑技能的价值正在下降，而对数据分析、SEO、受众洞察和多平台运营等混合技能的需求急剧上升。内容分发已从编辑判断转向算法策展，平台如今根据用户画像预测点击概率并据此排序内容。</span><span class="lang-switch-en">The value of traditional journalistic editing skills is declining, while demand for hybrid skills such as data analysis, SEO, audience insights, and multi-platform operations has surged. Content distribution has shifted from editorial judgment to algorithmic curation, with platforms now predicting click probability based on user profiles and ranking content accordingly.</span></p>
+        <p><strong><span class="lang-switch-zh">三大建议：</span><span class="lang-switch-en">Three Key Recommendations: </span></strong><span class="lang-switch-zh">（1）增设AI与算法相关课程；（2）针对地理与性别支持，帮助国际学生建立就业社交网络；（3）加强正式行业导师项目。</span><span class="lang-switch-en">(1) Introduce AI and algorithm-related courses; (2) Address geographic and gender support to help international students build employment networking opportunities; (3) Strengthen formal industry mentorship programs.</span></p>
+        <div class="collapsible" id="research-report">
+          <button class="collapsible-toggle light" onclick="toggleCollapsible('research-report')">
+            <span><span class="lang-switch-zh">📄 查看完整研究报告</span><span class="lang-switch-en">📄 View Full Research Report</span></span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="collapsible-content">
+            <div class="collapsible-inner" style="padding:20px;background:var(--bg-primary);border-radius:8px;margin-top:12px;">
+              <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:12px;"><strong><span class="lang-switch-zh">完整摘要：</span><span class="lang-switch-en">Full Abstract: </span></strong><span class="lang-switch-zh">传统线性新闻生产模式已被数据驱动的内容模式所取代。作为数字化趋势的一部分，未来从业者必须兼具创意叙事能力与科技技能。本报告提出的三大方案将为未来记者提供所需的技术能力。</span><span class="lang-switch-en">The traditional linear news production model has been replaced by data-driven content models. As part of the digitalization trend, future practitioners must combine creative storytelling with technological skills. The three recommendations proposed in this report will equip future journalists with needed technical capabilities.</span></p>
+              <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:12px;"><strong><span class="lang-switch-zh">参考文献（部分）：</span><span class="lang-switch-en">References (Selected):</span></strong></p>
+              <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.6;">
+                Australian Government. (2026). Jobs and Skills Atlas—Journalists And Other Writers.<br>
+                Nielsen, R. K., & Fletcher, R. (2023). Comparing the platformization of news media systems.<br>
+                Petre, C. (2021). All the News That's Fit to Click: How Metrics Are Transforming the Work of Journalists. Princeton University Press.
+              </p>
+              <a href="research-report.pdf" download style="display:inline-block;margin-top:16px;padding:10px 24px;background:var(--accent-gold);color:white;border-radius:6px;text-decoration:none;font-weight:500;">
+                <span class="lang-switch-zh">📥 下载完整研究报告 (PDF)</span><span class="lang-switch-en">📥 Download Full Research Report (PDF)</span>
+              </a>
+              <div style="margin-top:16px;">
+                <span class="project-tag" style="font-size:0.75rem;"><span class="lang-switch-zh">行业研究</span><span class="lang-switch-en">Industry Research</span></span>
+                <span class="project-tag" style="font-size:0.75rem;"><span class="lang-switch-zh">AI与新闻</span><span class="lang-switch-en">AI & Journalism</span></span>
+                <span class="project-tag" style="font-size:0.75rem;"><span class="lang-switch-zh">教育改革</span><span class="lang-switch-en">Education Reform</span></span>
+                <span class="project-tag" style="font-size:0.75rem;"><span class="lang-switch-zh">数字媒体</span><span class="lang-switch-en">Digital Media</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <div class="section-container">
+    <div class="section-header reveal">
+      <p class="section-number"><span class="lang-switch-zh">04 / 技能</span><span class="lang-switch-en">04 / Skills</span></p>
+      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title-cn"><span class="lang-switch-zh">技能与能力</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-category">
+        <h4><span class="lang-switch-zh">AIGC 与工具</span><span class="lang-switch-en">AIGC & Tools</span></h4>
+        <ul>
+          <li>ChatGPT</li>
+          <li>Claude</li>
+          <li>Midjourney</li>
+          <li><span class="lang-switch-zh">AI 辅助文案策划</span><span class="lang-switch-en">AI-Assisted Copywriting</span></li>
+          <li><span class="lang-switch-zh">数据分析与创意生成</span><span class="lang-switch-en">Data Analysis & Creative Generation</span></li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4><span class="lang-switch-zh">多媒体制作</span><span class="lang-switch-en">Multimedia Production</span></h4>
+        <ul>
+          <li>Adobe Premiere Pro</li>
+          <li>After Effects</li>
+          <li>Photoshop</li>
+          <li>Final Cut Pro</li>
+          <li><span class="lang-switch-zh">Canva / 播客制作</span><span class="lang-switch-en">Canva / Podcast Production</span></li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4><span class="lang-switch-zh">营销与运营</span><span class="lang-switch-en">Marketing & Operations</span></h4>
+        <ul>
+          <li><span class="lang-switch-zh">整合营销 Campaign</span><span class="lang-switch-en">Integrated Marketing Campaigns</span></li>
+          <li><span class="lang-switch-zh">KOL/KOC 管理</span><span class="lang-switch-en">KOL/KOC Management</span></li>
+          <li><span class="lang-switch-zh">媒介投放</span><span class="lang-switch-en">Media Buying</span></li>
+          <li><span class="lang-switch-zh">社群搭建与运营</span><span class="lang-switch-en">Community Building</span></li>
+          <li><span class="lang-switch-zh">内容活动营销</span><span class="lang-switch-en">Content & Event Marketing</span></li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h4><span class="lang-switch-zh">数据与语言</span><span class="lang-switch-en">Data & Languages</span></h4>
+        <ul>
+          <li>Statista / Google Analytics</li>
+          <li><span class="lang-switch-zh">数据可视化报表</span><span class="lang-switch-en">Data Visualization Reports</span></li>
+          <li><span class="lang-switch-zh">中文 · 母语</span><span class="lang-switch-en">Chinese · Native</span></li>
+          <li><span class="lang-switch-zh">英语 · C1 / 雅思7.0</span><span class="lang-switch-en">English · C1 / IELTS 7.0</span></li>
+          <li><span class="lang-switch-zh">意大利语 · A2.2</span><span class="lang-switch-en">Italian · A2.2</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer / Contact -->
+<footer id="contact">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-cta">
+        <h2>Let's Create<br>Together.</h2>
+        <h2 style="font-family: 'Noto Sans SC', sans-serif; font-weight: 900; margin-top: 8px;"><span class="lang-switch-zh">一起创造故事。</span><span class="lang-switch-en">Let's create stories together.</span></h2>
+        <p><span class="lang-switch-zh">如果你正在寻找一个跨文化背景的内容创作者、市场及社交媒体运营者，欢迎随时联系我。</span><span class="lang-switch-en">If you're looking for a cross-cultural content creator, marketing and social media professional, feel free to reach out anytime.</span></p>
+        <a href="mailto:dongyouwen@gmail.com" class="footer-email">
+          <span>dongyouwen@gmail.com</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="footer-info">
+        <h3><span class="lang-switch-zh">联系方式</span><span class="lang-switch-en">Contact Info</span></h3>
+        <p>董悠文 Stella Dong</p>
+        <p><span class="lang-switch-zh">跨文化数字叙事者</span><span class="lang-switch-en">Cross-cultural Digital Storyteller</span></p>
+        <p style="margin-top: 16px;">Email: dongyouwen@gmail.com</p>
+        <p>Mobile: +86-18918701024</p>
+        <p>Wechat:18918701024</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span class="lang-switch-zh">© 2026 Stella Dong 董悠文. 保留所有权利.</span><span class="lang-switch-en">© 2026 Stella Dong. All rights reserved.</span></p>
+      <p class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <span class="lang-switch-zh">返回顶部</span><span class="lang-switch-en">Back to Top</span>
+        <span>↑</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleCollapsible(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('open');
+  }
+
+  function togglePodcast() {
+    const audio = document.getElementById('podcast-audio');
+    const cover = document.getElementById('podcast-cover');
+    const btn = document.getElementById('podcast-play-btn');
+    const text = document.getElementById('podcast-play-text');
+    if (audio.paused) {
+      audio.play().then(() => {
+        cover.classList.add('playing');
+        btn.innerHTML = '⏸';
+        text.innerHTML = '<span class="lang-switch-zh">正在播放...</span><span class="lang-switch-en">Playing...</span>';
+      }).catch(err => {
+        text.innerHTML = '<span class="lang-switch-zh">播放失败，请重试</span><span class="lang-switch-en">Playback failed, retry</span>';
+        console.error('Audio play error:', err);
+      });
+    } else {
+      audio.pause();
+      cover.classList.remove('playing');
+      btn.innerHTML = '▶';
+      text.innerHTML = '<span class="lang-switch-zh">点击继续播放</span><span class="lang-switch-en">Click to resume</span>';
+    }
+  }
+
+  // Reset podcast button when audio ends
+  document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('podcast-audio');
+    if (audio) {
+      audio.addEventListener('ended', function() {
+        const cover = document.getElementById('podcast-cover');
+        const btn = document.getElementById('podcast-play-btn');
+        const text = document.getElementById('podcast-play-text');
+        cover.classList.remove('playing');
+        btn.innerHTML = '▶';
+        text.innerHTML = '<span class="lang-switch-zh">点击重新播放</span><span class="lang-switch-en">Click to replay</span>';
+      });
+    }
+  });
+
+  // Scroll reveal — supports multiple animation types
+  const allReveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  allReveals.forEach(el => revealObserver.observe(el));
+
+  // Nav background on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Hero initial animation
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal, .hero .reveal-left, .hero .reveal-right').forEach(el => {
+      el.classList.add('active');
+    });
+  }, 100);
+</script>
+
+
+<script>
+// ===== Bilingual Language System =====
+(function() {
+  // Detect saved language preference
+  const savedLang = localStorage.getItem('lang') || 'zh';
+  document.documentElement.className = 'lang-' + savedLang;
+  
+  // Update toggle button states
+  function updateToggle() {
+    const isZh = document.documentElement.className === 'lang-zh';
+    document.getElementById('btnZh').className = isZh ? 'active' : '';
+    document.getElementById('btnEn').className = isZh ? '' : 'active';
+  }
+  updateToggle();
+
+  window.switchLang = function() {
+    const html = document.documentElement;
+    const isZh = html.className === 'lang-zh';
+    html.className = isZh ? 'lang-en' : 'lang-zh';
+    localStorage.setItem('lang', isZh ? 'en' : 'zh');
+    updateToggle();
+  };
+
+  // i18n: replace text content for elements with data-i18n
+  const i18nMap = {};
+  
+  window.applyI18n = function() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const lang = document.documentElement.className === 'lang-zh' ? 'zh' : 'en';
+      const text = i18nMap[lang] && i18nMap[lang][key];
+      if (text !== undefined) el.innerHTML = text;
+    });
+  };
+
+  // Watch for language changes
+  const observer = new MutationObserver(() => {
+    applyI18n();
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  // Also re-apply after DOM changes (e.g., collapsible toggles)
+  document.addEventListener('DOMContentLoaded', applyI18n);
+  // Initial apply
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyI18n);
+  } else {
+    applyI18n();
+  }
+})();
+</script>
+
+</body>
+</html>
